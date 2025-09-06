@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wardrobes - SVBN Living</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card img {
+      height: 250px;
+      object-fit: cover;
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .btn {
+      border-radius: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand me-3" href="n1.html">SVBN Living</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSVBN">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSVBN">
+      <a href="n1.html" class="text-white text-decoration-none d-flex align-items-center me-3 mt-3 mt-lg-0">
+        <i class="bi bi-house-door-fill me-1"></i> Home
+      </a>
+      <form class="d-flex me-auto mt-3 mt-lg-0 w-100 w-lg-50">
+        <input class="form-control me-2" type="search" placeholder="Search wardrobes..." aria-label="Search">
+        <button class="btn text-white" type="submit" style="border: none; background: none;">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+      <div class="d-flex align-items-center flex-column flex-lg-row gap-3 mt-3 mt-lg-0">
+        <a href="wishlist.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-heart-fill me-1"></i> Wishlist
+        </a>
+        <a href="cart.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-cart-fill me-1"></i> Cart
+        </a>
+        <a href="orders.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-box-seam me-1"></i> Orders
+        </a>
+        <span class="text-white d-flex align-items-center">
+          <i class="bi bi-person-circle me-1"></i> User
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="text-center bg-light py-4">
+  <h1 class="display-5">Wardrobes Collection</h1>
+  <p class="lead">Shop comfortable and elegant Wardrobes</p>
+</header>
+
+<!-- Product Cards -->
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4" id="wardrobeContainer"></div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3 mt-4">
+  © 2025 SVBN Living | Designed with ♥ for your beautiful home
+</footer>
+<img src="./wardrobe/${product.img}" class="card-img-top" alt="${product.name}">
+function buyNow(index) {
+  const selectedProduct = products[index];
+  // Add category flag so we know it's from wardrobe
+  selectedProduct.category = 'wardrobe';
+  localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+  window.location.href = 'buyNow.html';
+}
+
+
+<!-- JS -->
+<script>
+  const products = [
+    { img: 'w1.jfif', name: 'Modern Walnut Wardrobe', price: '₹18999' },
+    { img: 'w2.jfif', name: 'Sliding 3-Door Wardrobe', price: '₹24500' },
+    { img: 'w3.jfif', name: 'Two Tone Wooden Wardrobe', price: '₹20499' },
+    { img: 'w4.jfif', name: 'White Glossy Wardrobe', price: '₹22750' },
+    { img: 'w5.jfif', name: '4-Door Storage Wardrobe', price: '₹19999' },
+    { img: 'w6.jfif', name: 'Classic Wooden Wardrobe', price: '₹21299' },
+    { img: 'w7.jfif', name: 'Minimalist Sliding Wardrobe', price: '₹23499' },
+    { img: 'w8.jfif', name: 'Dark Oak Wardrobe', price: '₹17999' },
+    { img: 'w9.jfif', name: 'Premium Mirror Wardrobe', price: '₹26750' }
+  ];
+
+  const container = document.getElementById('wardrobeContainer');
+
+  products.forEach((product, index) => {
+    container.innerHTML += `
+      <div class="col">
+        <div class="card h-100">
+          <img src="./wardrobe/${product.img}" class="card-img-top" alt="${product.name}">
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text text-success fw-bold">₹${product.price}</p>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" onclick="buyNow(${index})">Buy Now</button>
+              <button class="btn btn-outline-success" onclick="addToCart(${index})">Add to Cart</button>
+              <button class="btn btn-outline-danger" onclick="addToWishlist(${index})">Add to Wishlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  function buyNow(index) {
+    const p = products[index];
+    const url = `buyNow.html?name=${encodeURIComponent(p.name)}&price=${encodeURIComponent(p.price)}&image=${encodeURIComponent(p.img)}&category=wardrobe`;
+    window.location.href = url;
+  }
+
+  function addToCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push({ ...products[index], category: 'wardrobe' });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert("Added to cart!");
+  }
+
+  function addToWishlist(index) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    wishlist.push({ ...products[index], category: 'wardrobe' });
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    alert("Added to wishlist!");
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

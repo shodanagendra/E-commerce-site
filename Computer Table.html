@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Computer Tables - SVBN Living</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card img {
+      height: 250px;
+      object-fit: cover;
+    }
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .btn {
+      border-radius: 30px;
+    }
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand me-3" href="n1.html">
+      SVBN Living
+    </a>
+
+    <!-- Toggler button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSVBN" aria-controls="navbarSVBN" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="navbarSVBN">
+
+      <!-- Home Button -->
+      <a href="n1.html" class="text-white text-decoration-none d-flex align-items-center me-3 mt-3 mt-lg-0">
+        <i class="bi bi-house-door-fill me-1"></i> Home
+      </a>
+
+      <!-- Search Bar -->
+      <form class="d-flex me-auto mt-3 mt-lg-0 w-100 w-lg-50">
+        <input class="form-control me-2" type="search" placeholder="Search beds..." aria-label="Search">
+        <button class="btn text-white" type="submit" style="border: none; background: none;">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- Right Side Links -->
+      <div class="d-flex align-items-center flex-column flex-lg-row gap-3 mt-3 mt-lg-0">
+        <a href="wishlist.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-heart-fill me-1"></i> Wishlist
+        </a>
+        <a href="cart.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-cart-fill me-1"></i> Cart
+        </a>
+        <a href="orders.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-box-seam me-1"></i>Orders
+        </a>
+        <span class="text-white d-flex align-items-center">
+          <i class="bi bi-person-circle me-1"></i>  User
+        </span>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!-- Heading -->
+<header class="text-center bg-light py-4">
+  <h1 class="display-5">Computer Table Collection</h1>
+  <p class="lead">Shop comfortable and elegant Computer Table </p>
+</header>
+  <!-- Page Header -->
+  <div class="container mt-4">
+    
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <!-- Cards -->
+      <script>
+        const computerTables = [
+          { img: './computer/c1.jfif', name: 'Compact Computer Table', price: '₹3,199' },
+          { img: './computer/c2.jfif', name: 'Computer Desk with Shelf', price: '₹4,250' },
+          { img: './computer/c3.jfif', name: 'Ergonomic Study Desk', price: '₹2,799' },
+          { img: './computer/c4.jfif', name: 'Office Workstation Table', price: '₹5,499' },
+          { img: './computer/c5.jfif', name: 'Laptop Table Combo', price: '₹2,899' },
+          { img: './computer/c6.jfif', name: 'Minimal Design Table', price: '₹3,399' },
+          { img: './computer/c7.jfif', name: 'Heavy Duty PC Table', price: '₹4,699' },
+          { img: './computer/c8.jfif', name: 'Multipurpose Desk', price: '₹3,149' },
+          { img: './computer/c9.jfif', name: 'Stylish Work Desk', price: '₹4,050' }
+        ];
+
+        document.write(computerTables.map((product, index) => `
+          <div class="col">
+            <div class="card h-100">
+              <img src="${product.img}" class="card-img-top" alt="${product.name}">
+              <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text text-success fw-bold">${product.price}</p>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary" onclick="buyNow(${index})">Buy Now</button>
+                  <button class="btn btn-outline-success" onclick="addToCart(${index})">Add to Cart</button>
+                  <button class="btn btn-outline-danger" onclick="addToWishlist(${index})">Add to Wishlist</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `).join(''));
+      </script>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    function buyNow(index) {
+      const selectedProduct = computerTables[index];
+      localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+      window.location.href = 'buyNow.html';
+    }
+
+    function addToCart(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push(computerTables[index]);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+
+    function addToWishlist(index) {
+      let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+      wishlist.push(computerTables[index]);
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      alert("Added to wishlist!");
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p class="mb-0">© 2025 SVBN Living | Designed with ♥ for your beautiful home</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

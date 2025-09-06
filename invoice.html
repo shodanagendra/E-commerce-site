@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoice - SVBN Living</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<!-- Navbar (optional) -->
+<nav class="navbar navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="n1.html">SVBN Living</a>
+    <a href="orders.html" class="btn btn-outline-light">← Back to Orders</a>
+  </div>
+</nav>
+
+<!-- Invoice Content -->
+<div class="container mt-4" id="invoiceSection">
+  <h2 class="mb-4">Order Invoice</h2>
+  <div class="row">
+    <div class="col-md-5">
+      <img id="productImage" src="" alt="Product Image" class="img-fluid rounded border" />
+    </div>
+    <div class="col-md-7">
+      <h4 id="productName"></h4>
+      <p id="productPrice"></p>
+      <p id="orderDate"></p>
+      <p id="deliveryDate"></p>
+      <hr />
+      <h5>Payment Summary</h5>
+      <ul>
+        <li><strong>Payment Mode:</strong> Cash on Delivery</li>
+        <li><strong>Transaction ID:</strong> #TXN${Math.floor(100000 + Math.random() * 900000)}</li>
+        <li><strong>Status:</strong> Paid</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  const order = JSON.parse(localStorage.getItem("selectedOrder"));
+
+  if (!order) {
+    document.getElementById("invoiceSection").innerHTML = "<p>No order found.</p>";
+  } else {
+    document.getElementById("productImage").src = order.image || "https://via.placeholder.com/300";
+    document.getElementById("productName").innerText = order.order_name;
+    document.getElementById("productPrice").innerText = "Price: ₹" + order.order_price.toLocaleString();
+    document.getElementById("orderDate").innerText = "Ordered on: " + order.date;
+    document.getElementById("deliveryDate").innerText = "Delivery by: " + order.delivery;
+  }
+</script>
+
+</body>
+</html>

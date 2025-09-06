@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SVBN Living</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .top-header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 24px;
+      text-align: center;
+    }
+    .nav-icons span {
+      margin: 0 10px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .promo-banner {
+      background: #fff8dc;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .category-box {
+      padding: 30px 0;
+    }
+    .category-box .card {
+      border: none;
+      background: none;
+      text-align: center;
+    }
+    .category-box img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ddd;
+      margin: 0 auto 10px;
+      transition: 0.3s ease;
+    }
+    .category-box img:hover {
+      transform: scale(1.1);
+      border-color: #007bff;
+    }
+    .carousel-caption {
+      background-color: rgba(0,0,0,0.4);
+      padding: 10px;
+      border-radius: 5px;
+    }
+	.review-card {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+	.review-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+	}
+	
+	.feature-card {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border: 1px solid #f1f1f1;
+	}
+	.feature-card:hover {
+	  transform: translateY(-6px);
+	  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+	}
+	.comparison-table td,
+	.comparison-table th {
+	  vertical-align: middle;
+	  font-size: 15px;
+	}
+	.comparison-table td i {
+	  margin-right: 8px;
+	  color: #0d6efd;
+	}
+	.comparison-table tbody tr:hover {
+	  background-color: #f1f8ff;
+	}
+  
+	  .review-carousel {
+		overflow: hidden;
+		position: relative;
+	  }
+	  .review-track {
+		display: flex;
+		animation: scrollReviews 30s linear infinite;
+	  }
+	  .review-card {
+		flex: 0 0 300px;
+		margin-right: 20px;
+	  }
+	  @keyframes scrollReviews {
+		0% { transform: translateX(0); }
+		100% { transform: translateX(-50%); }
+	  }
+	  .review-box {
+		background-color: #f8f9fa;
+		border-radius: 10px;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		padding: 20px;
+		height: 100%;
+	  }
+	.footer-link {
+	  color: #bbb;
+	  text-decoration: none;
+	  transition: color 0.3s ease;
+	}
+
+	.footer-link:hover {
+	  color: #00d9ff;
+	  text-decoration: underline;
+	}
+
+	.social-link {
+	  font-size: 20px;
+	  color: #bbb;
+	  transition: all 0.3s ease;
+	}
+
+	.social-link:hover {
+	  color: #00d9ff;
+	  transform: scale(1.2);
+	}
+
+
+  	
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <div class="top-header">SVBN Living</div>
+
+ <!-- Bootstrap Icons CDN (include in <head> section of each page) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+ 
+ 
+
+<!-- Bootstrap Icons CDN (Make sure this is in <head>) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center me-3" href="n1.html">
+      <i class="bi bi-house-door-fill me-2"></i> SVBN Living
+    </a>
+
+    <!-- Toggler button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#svbnNavbar" aria-controls="svbnNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links and search -->
+    <div class="collapse navbar-collapse" id="svbnNavbar">
+      
+      <!-- Search -->
+      <form class="d-flex me-auto mt-3 mt-lg-0 w-100 w-lg-50">
+        <input class="form-control me-2" type="search" placeholder="Search beds..." aria-label="Search">
+        <button class="btn text-white" type="submit" style="border: none; background: none;">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+      <!-- Right Side Links -->
+      <div class="d-flex align-items-center flex-column flex-lg-row gap-3 mt-3 mt-lg-0">
+        <a href="wishlist.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-heart-fill me-1"></i> Wishlist
+        </a>
+        <a href="cart.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-cart-fill me-1"></i> Cart
+        </a>
+        <a href="orders.html" class="text-white text-decoration-none d-flex align-items-center">
+          <i class="bi bi-box-seam me-1"></i> Orders
+        </a>
+        <span class="text-white d-flex align-items-center">
+          <i class="bi bi-person-circle me-1"></i> User
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+  <!-- Carousel and Static Image -->
+  <div class="container my-4">
+    <div class="row"> 
+      <div class="col-md-6">
+        <div id="homeCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./Img/c1.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Monsoon combo Sale </h5>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="./Img/c2.jpg" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Combo Offers - Limited Time</h5>
+              </div>
+            </div>
+			 <div class="carousel-item">
+              <img src="./Img/sale.png" class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Limited  offers</h5>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <img src="./Img/l1.jpg" class="img-fluid rounded shadow" alt="Promo" style="max-height: 400px;">
+		
+      </div> 
+    </div>
+  </div>
+
+  <!-- Promo -->
+  <div class="promo-banner">
+    <h1>Visit our store & Get Extra 10% OFF</h1>
+	<h4> Where Style Meets Comfort in Every Corner</h4>
+  </div>
+
+ <!-- Categories -->
+<div class="container category-box">
+  <h3 class="text-center mb-4">Shop All Things Home</h3>
+  <div class="row row-cols-2 row-cols-md-4 g-4">
+
+    <div class="col">
+      <a href="bed.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/bed1.jfif" alt="Beds">
+          <div class="card-body p-1">
+            <h6>Beds</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="wardrobe.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/wardrobe.jfif" alt="Wardrobes">
+          <div class="card-body p-1">
+            <h6>Wardrobes</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="shoerack.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/shoe.jfif" alt="Shoe Racks">
+          <div class="card-body p-1">
+            <h6>Shoe Racks</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="study table.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/study.jfif" alt="Study Tables">
+          <div class="card-body p-1">
+            <h6>Study Tables</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="tv units.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/tv.jfif" alt="TV Units">
+          <div class="card-body p-1">
+            <h6>TV Units</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="Bookshelf.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/book.jfif" alt="Bookshelves">
+          <div class="card-body p-1">
+            <h6>Bookshelves</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="computer table.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/computer.jfif" alt="Computer Tables">
+          <div class="card-body p-1">
+            <h6>Computer Tables</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="chair.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/chairs.jfif" alt="Chairs">
+          <div class="card-body p-1">
+            <h6>Chairs</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="dressing Table.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/dressing.jfif" alt="Dressing Tables">
+          <div class="card-body p-1">
+            <h6>Dressing Tables</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="Sofa set.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/sofa.jfif" alt="Sofa Sets">
+          <div class="card-body p-1">
+            <h6>Sofa Sets</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="Dining Table.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/dining.jfif" alt="Dining Sets">
+          <div class="card-body p-1">
+            <h6>Dining Sets</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col">
+      <a href="wooden furniture.html" style="text-decoration: none; color: inherit;">
+        <div class="card">
+          <img src="./Img/furniture.jfif" alt="Wooden Furniture">
+          <div class="card-body p-1">
+            <h6>Wooden Furniture</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+ 
+<!-- What's Special in SVBN Living -->
+<div class="container py-5">
+  <h3 class="text-center mb-4 fw-bold">What's Special in SVBN Living</h3>
+  <h5 class="text-center mb-4 fw-bold"> – Designing Dreams, Creating Comfort.</h5>
+  <div class="row text-center g-4">
+    <div class="col-md-3">
+      <div class="p-4 shadow-sm rounded feature-card h-100 bg-white">
+        <i class="bi bi-truck fs-1 text-primary mb-3"></i>
+        <h5>Fast & Free Delivery</h5>
+        <p class="text-muted small">Get your furniture delivered quickly, safely, and free of cost.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="p-4 shadow-sm rounded feature-card h-100 bg-white">
+        <i class="bi bi-star-fill fs-1 text-warning mb-3"></i>
+        <h5>Premium Quality</h5>
+        <p class="text-muted small">Every product is crafted with top-grade materials and care.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="p-4 shadow-sm rounded feature-card h-100 bg-white">
+        <i class="bi bi-currency-rupee fs-1 text-success mb-3"></i>
+        <h5>Affordable Pricing</h5>
+        <p class="text-muted small">Luxury living made affordable with competitive pricing.</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="p-4 shadow-sm rounded feature-card h-100 bg-white">
+        <i class="bi bi-shield-check fs-1 text-info mb-3"></i>
+        <h5>Secure Orders</h5>
+        <p class="text-muted small">Enjoy safe and secure ordering with guaranteed product safety.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-2">📸 Happy Homes with SVBN Living</h2>
+  <h5 class="text-center mb-4 text-muted">What Our Customers Say</h5>
+
+  <div class="review-carousel">
+    <div class="review-track">
+
+      <!-- Review 1 -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">
+            ★★★★★
+          </div>
+          <p class="fw-bold mb-1">"Great quality!"</p>
+          <p class="small text-muted">The bed I ordered is sturdy and premium. Worth every penny!</p>
+          <span class="text-primary small">- Ramesh K.</span>
+        </div>
+      </div>
+
+      <!-- Review 2 -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">
+            ★★★★★
+          </div>
+          <p class="fw-bold mb-1">"Fast delivery!"</p>
+          <p class="small text-muted">Got my wardrobe within 2 days. Very fast service and great condition.</p>
+          <span class="text-primary small">- Meena S.</span>
+        </div>
+      </div>
+
+      <!-- Review 3 -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">
+            ★★★★☆
+          </div>
+          <p class="fw-bold mb-1">"Very comfortable furniture."</p>
+          <p class="small text-muted">The sofa set is very cozy and stylish. My family loves it!</p>
+          <span class="text-primary small">- Arjun D.</span>
+        </div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">
+            ★★★★☆
+          </div>
+          <p class="fw-bold mb-1">"Affordable and stylish."</p>
+          <p class="small text-muted">Best value for money in the entire store. Thanks SVBN Living!</p>
+          <span class="text-primary small">- Priya M.</span>
+        </div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">
+            ★★★★★
+          </div>
+          <p class="fw-bold mb-1">"Superb customer service!"</p>
+          <p class="small text-muted">They answered my questions quickly and delivered perfectly.</p>
+          <span class="text-primary small">- Rohit N.</span>
+        </div>
+      </div>
+
+      <!-- Review 6 -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">
+            ★★★★★
+          </div>
+          <p class="fw-bold mb-1">"Exactly as shown!"</p>
+          <p class="small text-muted">The dining table looks just like the pictures. Beautiful and elegant.</p>
+          <span class="text-primary small">- Anjali T.</span>
+        </div>
+      </div>
+
+      <!-- Duplicate few for smooth loop effect -->
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">★★★★★</div>
+          <p class="fw-bold mb-1">"Great quality!"</p>
+          <p class="small text-muted">The bed I ordered is sturdy and premium. Worth every penny!</p>
+          <span class="text-primary small">- Ramesh K.</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-box">
+          <div class="mb-2 text-warning">★★★★★</div>
+          <p class="fw-bold mb-1">"Fast delivery!"</p>
+          <p class="small text-muted">Got my wardrobe within 2 days. Very fast service and great condition.</p>
+          <span class="text-primary small">- Meena S.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SVBN Living vs Others -->
+<div class="container py-5">
+  <h3 class="text-center mb-4 fw-bold">SVBN Living <span class="text-primary">vs</span> Others</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover text-center shadow-sm comparison-table">
+      <thead class="table-dark">
+        <tr>
+          <th>Feature</th>
+          <th>SVBN Living</th>
+          <th>Others</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><i class="bi bi-truck"></i> Delivery Speed</td>
+          <td class="table-success">Free & Fast (3-5 Days)</td>
+          <td class="table-danger">Slow or Paid</td>
+        </tr>
+        <tr>
+          <td><i class="bi bi-star-fill"></i> Quality</td>
+          <td class="table-success">Premium-Grade Wood</td>
+          <td class="table-danger">Mixed or Low Quality</td>
+        </tr>
+        <tr>
+          <td><i class="bi bi-currency-rupee"></i> Pricing</td>
+          <td class="table-success">Affordable & Transparent</td>
+          <td class="table-danger">Hidden Costs</td>
+        </tr>
+        <tr>
+          <td><i class="bi bi-shield-lock"></i> Secure Payments</td>
+          <td class="table-success">SSL Encrypted & Safe</td>
+          <td class="table-danger">Limited Security</td>
+        </tr>
+        <tr>
+          <td><i class="bi bi-emoji-smile"></i> Customer Support</td>
+          <td class="table-success">24/7 Support</td>
+          <td class="table-danger">Limited Hours</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- FAQ Section -->
+<div class="container py-5" id="faq">
+  <h2 class="text-center mb-5 fw-bold text-dark">❓ Frequently Asked Questions</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="accordion shadow-lg" id="faqAccordion">
+
+        <!-- Question 1 -->
+        <div class="accordion-item border-0 mb-3">
+          <h2 class="accordion-header" id="faqHeadingOne">
+            <button class="accordion-button collapsed bg-primary text-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseOne">
+              <i class="bi bi-info-circle-fill me-2"></i> What is SVBN Living?
+            </button>
+          </h2>
+          <div id="faqCollapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body bg-light">
+              SVBN Living is your go-to destination for stylish, durable, and affordable home furniture. We bring comfort and elegance to your living space.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="accordion-item border-0 mb-3">
+          <h2 class="accordion-header" id="faqHeadingTwo">
+            <button class="accordion-button collapsed bg-primary text-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseTwo">
+              <i class="bi bi-truck me-2"></i> Do you offer free delivery?
+            </button>
+          </h2>
+          <div id="faqCollapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body bg-light">
+              Yes! We offer free delivery on all orders above ₹5,000 to most major cities in India.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="accordion-item border-0 mb-3">
+          <h2 class="accordion-header" id="faqHeadingThree">
+            <button class="accordion-button collapsed bg-primary text-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseThree">
+              <i class="bi bi-arrow-repeat me-2"></i> What is your return policy?
+            </button>
+          </h2>
+          <div id="faqCollapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body bg-light">
+              We have a 7-day easy return policy. If you're not satisfied, you can return the item within 7 days of delivery.
+            </div>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="accordion-item border-0 mb-3">
+          <h2 class="accordion-header" id="faqHeadingFour">
+            <button class="accordion-button collapsed bg-primary text-white fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapseFour">
+              <i class="bi bi-credit-card-fill me-2"></i> What payment methods are accepted?
+            </button>
+          </h2>
+          <div id="faqCollapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body bg-light">
+              We accept all major credit/debit cards, UPI, net banking, and cash on delivery (COD).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white pt-5 pb-4 footer-style">
+  <div class="container text-md-left">
+    <div class="row text-md-left">
+
+      <!-- About -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase fw-bold mb-4">About SVBN Living</h6>
+        <p>Your one-stop destination for modern, affordable furniture. We craft comfort and style for every home.</p>
+      </div>
+
+      <!-- Customer Support -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase fw-bold mb-4">Customer Support</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="footer-link">Contact Us</a></li>
+          <li><a href="#" class="footer-link">Track Order</a></li>
+          <li><a href="#" class="footer-link">Return Policy</a></li>
+          <li><a href="#" class="footer-link">FAQs</a></li>
+        </ul>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase fw-bold mb-4">Useful Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="footer-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+          <li><a href="#" class="footer-link">Cancellation Policy</a></li>
+          <li><a href="#" class="footer-link">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase fw-bold mb-4">Contact Info</h6>
+        <p><i class="bi bi-geo-alt-fill me-2 text-info"></i>Hyderabad, India</p>
+        <p><i class="bi bi-envelope-fill me-2 text-info"></i>Team@svbnliving.com</p>
+        <p><i class="bi bi-telephone-fill me-2 text-info"></i>+91 6300xxxx73</p>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 text-center">
+        <h6 class="text-uppercase fw-bold mb-4">Follow Us</h6>
+        <div class="social-icons d-flex justify-content-center gap-3">
+          <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="mb-4 mt-4 text-white"/>
+
+    <div class="row text-center">
+      <div class="col-md-12">
+        <p class="mb-0">&copy; 2025 SVBN Living | Designed with ❤️</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
